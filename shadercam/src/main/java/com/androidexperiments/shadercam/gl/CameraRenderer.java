@@ -469,7 +469,7 @@ public class CameraRenderer extends Thread implements SurfaceTexture.OnFrameAvai
      * the main camera setup gets underway
      */
     private void onPreSetupGLComponents() {
-
+        System.out.println("onPreSetupGLComponents");
     }
 
     protected void setupVertexBuffer() {

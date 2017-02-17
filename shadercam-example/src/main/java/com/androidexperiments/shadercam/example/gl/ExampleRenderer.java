@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 
-import com.androidexperiments.shadercam.fragments.CameraFragment;
 import com.androidexperiments.shadercam.gl.CameraRenderer;
 
 /**

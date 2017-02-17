@@ -1,6 +1,7 @@
 package com.androidexperiments.shadercam.example;
 
 import android.Manifest;
+import android.content.Intent;
 import android.graphics.SurfaceTexture;
 import android.os.Bundle;
 import android.os.Environment;
@@ -244,8 +245,6 @@ public class SimpleShaderActivity extends FragmentActivity implements CameraRend
 
         //restart so surface is recreated
         shutdownCamera(true);
-
-        Toast.makeText(this, "File recording complete: " + getVideoFile().getAbsolutePath(), Toast.LENGTH_LONG).show();
     }
 
     private File getVideoFile()
@@ -297,12 +296,21 @@ public class SimpleShaderActivity extends FragmentActivity implements CameraRend
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (mRestartCamera) {
-                    setReady(mTextureView.getSurfaceTexture(), mTextureView.getWidth(), mTextureView.getHeight());
-                    mRestartCamera = false;
-                }
+//                if (mRestartCamera) {
+//                    setReady(mTextureView.getSurfaceTexture(), mTextureView.getWidth(), mTextureView.getHeight());
+//                    mRestartCamera = false;
+//                }
+
+                playVideo();
+                Toast.makeText(SimpleShaderActivity.this, "File recording complete: " + getVideoFile().getAbsolutePath(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void playVideo() {
+        Intent intent = new Intent(this, PlayerActivity.class);
+        intent.putExtra(PlayerActivity.EXTRA_VIDEO_PATH, getVideoFile().getAbsoluteFile().getAbsolutePath());
+        startActivity(intent);
     }
 
 
