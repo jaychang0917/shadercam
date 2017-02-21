@@ -249,7 +249,7 @@ public class SimpleShaderActivity extends FragmentActivity implements CameraRend
 
     private File getVideoFile()
     {
-        return new File(Environment.getExternalStorageDirectory(), TEST_VIDEO_FILE_NAME);
+        return new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES), TEST_VIDEO_FILE_NAME);
     }
 
     /**
